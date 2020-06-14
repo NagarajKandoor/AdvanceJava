@@ -1,6 +1,6 @@
 package com.objectclass.example;
 
-public class Person {
+public class Person implements Cloneable {
 
 	private final String firstName;
 	private final String lastName;
@@ -76,5 +76,10 @@ public class Person {
 	public String toString() {
 		return String.format("%s[email=%s, first name=%s, last name=%s]", getClass().getSimpleName(), email, firstName,
 				lastName);
+	}
+
+	@Override
+	public Person clone() throws CloneNotSupportedException {
+		return (Person) super.clone();
 	}
 }
